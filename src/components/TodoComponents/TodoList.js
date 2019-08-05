@@ -5,7 +5,6 @@ const ToDoList = props => {
     console.log(props);
     return(
         <div>
-            <p>ToDoList:</p>
             {props.items.map(i => (
                 <ToDo 
                     key={i.id}

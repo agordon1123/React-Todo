@@ -64,9 +64,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Functional To Do List</h2>
-        <p>Stay motivated and focused with this interactive to-do list built using React classes</p>
+      <div className='app'>
+        <h1>Goals</h1>
+        <p>Stay motivated and focused with this interactive to-do list built using React classes.</p>
         <ToDoList 
           items={this.state.items} 
           toggleItem={this.toggleItem} 
