@@ -32,6 +32,12 @@ const todoData = [
   }
 ];
 
+const stringified = JSON.stringify(todoData)
+console.log(stringified)
+localStorage.setItem('data', stringified)
+const parsed = localStorage.getItem('data')
+console.log(parsed)
+
 // * 5 * Created my React.Component App
 class App extends React.Component {
   // * 6 * Created my constructor and initialized state with mockData above

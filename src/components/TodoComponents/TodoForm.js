@@ -34,7 +34,7 @@ class ToDoForm extends React.Component {
                     onChange={this.handleChanges}
                     placeholder='What next?'
                 />
-                <button>Add Todo</button>
+                <button>Add</button>
             </form>
         )
     }
