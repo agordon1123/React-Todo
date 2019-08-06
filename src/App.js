@@ -6,13 +6,28 @@ import './styles.css';
 
 const todoData = [
   {
-    task: 'Finish building my component',
+    task: 'Finish building my components',
     id: 1,
-    completed: false
+    completed: true
+  },
+  {
+    task: 'Initialize state and props',
+    id: 2,
+    completed: true
+  },
+  {
+    task: 'Wire up functions',
+    id: 3,
+    completed: true
+  },
+  {
+    task: 'Minimum Viable Product',
+    id: 4,
+    completed: true
   },
   {
     task: 'Hit stretch goals',
-    id: 2,
+    id: 5,
     completed: false
   }
 ];
@@ -67,7 +82,7 @@ class App extends React.Component {
     return (
       <div className='app'>
         <h1>Goals</h1>
-        <p>Stay motivated and focused with this interactive to-do list built using React classes.</p>
+        <p>Stay motivated and focused with this interactive to-do list built using React classes:</p>
         {/* * 14 * Called ToDoList and passed state and the toggleItems fn */}
         <ToDoList 
           items={this.state.items} 
