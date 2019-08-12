@@ -1,0 +1,40 @@
+body {
+    text-align: left;
+    font-size: 62.5%;
+    background-color: #2D3A3A;
+}
+h1 {
+    font-size: 3.2rem;
+    margin: 0;
+    text-align: center;
+    text-decoration: underline;
+}
+p {
+    font-size: 1.4rem;
+}
+.app {
+    font-family: 'Roboto', sans-serif;
+    max-width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    height: 100vh;
+    background-color: #D4F8D4;
+}
+.form {
+    text-align: center;
+    font-size: 1.4rem;
+}
+input {
+    font-size: 1rem;
+    height: 1.8rem;
+    border: 2px solid lightgray;
+    width: 215px
+}
+button {
+    height: 2.3rem;
+    border-radius: 5px;
+    border: 2px solid gray;
+    margin-left: 10px;
+    font-size: 1rem;
+    width: 85px;
+}
