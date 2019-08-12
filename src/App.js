@@ -35,12 +35,9 @@ const todoData = [
 class App extends React.Component {
   constructor() {
     super();
-    const parsed = JSON.parse(localStorage.getItem('items'))
-    console.log(parsed)
     this.state = {
-      items: parsed ? parsed : todoData
+      items: todoData
     }
-    console.log(this.state)
   }
 
   componentDidMount() {
@@ -77,12 +74,9 @@ class App extends React.Component {
       id: Date.now(),
       completed: false
     }
-    // this.setState({
-    //   items: [...this.state.items, newItem]
-    // })
-    const stringified = JSON.stringify(newItem)
-    console.log(stringified)
-    localStorage.setItem('items', stringified)
+    this.setState({
+      items: [...this.state.items, newItem]
+    })
   }
 
   clearItems = () => {
@@ -97,7 +91,7 @@ class App extends React.Component {
         <h1>Goals</h1>
         <p>Stay motivated and focused with this interactive to-do list built using React classes:</p>
         <ToDoList 
-          items={[this.state.items]} 
+          items={this.state.items} 
           toggleItem={this.toggleItem} 
           clearItems={this.clearItems} 
         />
