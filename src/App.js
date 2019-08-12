@@ -26,21 +26,13 @@ const todoData = [
     completed: true
   },
   {
-    task: 'Hit stretch goals',
+    task: 'Impliment LocalStorage',
     id: 5,
-    completed: false
+    completed: true
   }
 ];
 
-const stringified = JSON.stringify(todoData)
-console.log(stringified)
-localStorage.setItem('data', stringified)
-const parsed = localStorage.getItem('data')
-console.log(parsed)
-
-// * 5 * Created my React.Component App
 class App extends React.Component {
-  // * 6 * Created my constructor and initialized state with mockData above
   constructor() {
     super();
     this.state = {
@@ -48,7 +40,18 @@ class App extends React.Component {
     }
   }
 
-  // * 13 * Created toggleItem to map through props and check if the item.id matches current state's id. If yes, it inverses the value of completed (which will work with our ternary in ToDo.js). If else, it returns the item.
+  componentDidMount() {
+    if (localStorage.getItem('items')) {
+      this.setState({items: JSON.parse(localStorage.getItem('items'))})
+    } else {
+      localStorage.setItem('items', JSON.stringify(todoData))
+    }
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem('items', JSON.stringify(this.state.items))
+  }
+
   toggleItem = id => {
     this.setState({
       items: this.state.items.map(i => {
@@ -65,7 +68,6 @@ class App extends React.Component {
     })
   }
 
-  // * 7 * Created addItem fn to initialize newItem added from form input and set to State
   addItem = itemName => {
     const newItem = {
       task: itemName,
@@ -77,7 +79,6 @@ class App extends React.Component {
     })
   }
 
-  // * 16 * Created clearItems fn to filter out and remove any items within state where completed is true
   clearItems = () => {
     this.setState({
       items: this.state.items.filter(i => !i.completed)
@@ -89,13 +90,11 @@ class App extends React.Component {
       <div className='app'>
         <h1>Goals</h1>
         <p>Stay motivated and focused with this interactive to-do list built using React classes:</p>
-        {/* * 14 * Called ToDoList and passed state and the toggleItems fn */}
         <ToDoList 
           items={this.state.items} 
           toggleItem={this.toggleItem} 
           clearItems={this.clearItems} 
         />
-        {/* * 8 * Called ToDoForm and pass addItem */}
         <ToDoForm addItem={this.addItem} />
       </div>
     );
