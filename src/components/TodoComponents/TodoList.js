@@ -2,6 +2,7 @@ import React from 'react';
 import ToDo from './Todo';
 
 const ToDoList = props => {
+    console.log(props.items)
     return(
         <div>
             {props.items.map(i => (
